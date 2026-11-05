@@ -1,0 +1,305 @@
+/* assets/css/admin_dashboard.css */
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap');
+
+body { 
+    font-family: 'Prompt', sans-serif; 
+    background-color: #f4f7f6; 
+}
+.dashboard-title { 
+    font-weight: 700; 
+    color: #2b3445; 
+    letter-spacing: -0.5px; 
+}
+
+/* สไตล์การ์ดภาพรวม */
+.card-custom { 
+    border-radius: 16px; 
+    border: none; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); 
+    transition: all 0.3s ease; 
+    background: #fff; 
+}
+.card-custom:hover { 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); 
+    transform: translateY(-5px); 
+}
+
+/* กล่องไอคอนในการ์ด */
+.icon-box { 
+    width: 55px; 
+    height: 55px; 
+    border-radius: 12px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 1.8rem; 
+}
+.bg-light-primary { background-color: rgba(13, 110, 253, 0.12); color: #0d6efd; }
+.bg-light-danger { background-color: rgba(220, 53, 69, 0.12); color: #dc3545; }
+.bg-light-warning { background-color: rgba(255, 193, 7, 0.15); color: #f59f00; }
+.bg-light-success { background-color: rgba(25, 135, 84, 0.12); color: #198754; }
+
+/* สไตล์แถบค้นหา (Filter) */
+.filter-wrapper { 
+    background: #fff; 
+    border-radius: 50px; 
+    padding: 6px 12px; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04); 
+    border: 1px solid #eee; 
+}
+.chart-header { 
+    background: transparent; 
+    border-bottom: 1px solid #f1f4f8; 
+    padding: 1.2rem 1.5rem; 
+    font-weight: 600; 
+    color: #333; 
+    font-size: 1.1rem; 
+}
+
+/* แผนที่ */
+#salesMap {
+    height: 400px;
+    width: 100%;
+    border-radius: 0 0 16px 16px;
+    z-index: 1;
+}
+/* --- Styles สำหรับหน้า จัดการผู้ใช้งาน (Users) และ ตาราง --- */
+
+/* ปรับแต่งตารางให้ดู Modern */
+.table-custom { border-collapse: separate; border-spacing: 0; }
+.table-custom thead th { 
+    background-color: #f8f9fa; 
+    color: #6c757d; 
+    font-weight: 600; 
+    text-transform: uppercase; 
+    font-size: 0.8rem; 
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #e9ecef; 
+    padding: 15px; 
+}
+.table-custom tbody td { 
+    padding: 15px; 
+    vertical-align: middle; 
+    border-bottom: 1px solid #f1f4f8; 
+    color: #495057;
+}
+.table-custom tbody tr:hover { background-color: #fcfcfd; }
+
+/* สไตล์ Badge ระบุสิทธิ์ (Role) และ สถานะ (Status) แบบ Soft Color */
+.badge-soft { padding: 6px 12px; border-radius: 50px; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.3px; }
+.badge-role-admin { background-color: rgba(220, 53, 69, 0.1); color: #dc3545; }
+.badge-role-user { background-color: rgba(13, 110, 253, 0.1); color: #0d6efd; }
+.badge-status-active { background-color: rgba(25, 135, 84, 0.12); color: #198754; }
+.badge-status-inactive { background-color: rgba(255, 193, 7, 0.15); color: #f59f00; }
+
+/* สไตล์ปุ่ม Action ในตาราง */
+.action-btn { 
+    width: 36px; height: 36px; 
+    display: inline-flex; align-items: center; justify-content: center; 
+    border-radius: 50%; 
+    transition: all 0.2s ease; 
+}
+.action-btn:hover { transform: scale(1.1); }
+/* --- Styles สำหรับ Form ทั่วไปในหน้า Admin --- */
+.form-label-custom { 
+    font-weight: 600; 
+    color: #495057; 
+    font-size: 0.9rem; 
+    margin-bottom: 0.5rem; 
+}
+.form-control-custom, .form-select-custom { 
+    border-radius: 10px; 
+    border: 1px solid #ced4da; 
+    padding: 0.6rem 1rem; 
+    transition: all 0.2s ease-in-out; 
+    background-color: #fff;
+}
+.form-control-custom:focus, .form-select-custom:focus { 
+    border-color: #d4af37; /* สีทองธีมร้าน */
+    box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.15); 
+    background-color: #fff;
+}
+.form-control-custom:read-only {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    cursor: not-allowed;
+}
+.form-section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #2b3445;
+    border-bottom: 2px solid #f1f4f8;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+/* --- Styles สำหรับหน้า จัดการสินค้า (Products) --- */
+.product-thumbnail {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #f8f9fa;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+.product-thumbnail:hover {
+    transform: scale(1.15);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    z-index: 10;
+    position: relative;
+}
+
+/* ป้ายกำกับประเภทสินค้า */
+.badge-type-coffin { background-color: rgba(108, 117, 125, 0.1); color: #495057; }
+.badge-type-decoration { background-color: rgba(13, 202, 240, 0.1); color: #087990; }
+.badge-sale-set { background-color: rgba(111, 66, 193, 0.1); color: #6f42c1; }
+.badge-sale-ind { background-color: rgba(33, 37, 41, 0.05); color: #212529; }
+/* --- Styles สำหรับหน้า เพิ่ม/แก้ไข สินค้า --- */
+
+/* กำหนดความสูงให้ CKEditor */
+.ck-editor__editable { 
+    min-height: 250px; 
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+}
+.ck-toolbar {
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    background-color: #f8f9fa !important;
+}
+
+/* กล่องค้นหาไซส์เล็ก (AJAX Search) */
+.search-box-sm { 
+    max-width: 250px; 
+    border-radius: 50px;
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+}
+
+/* รายการของตกแต่ง (Checkbox List) */
+.dec-item-list {
+    max-height: 250px; 
+    overflow-y: auto;
+    padding-right: 5px;
+}
+.dec-item-list::-webkit-scrollbar { width: 6px; }
+.dec-item-list::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+.dec-item-list::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 10px; }
+
+.dec-item {
+    transition: all 0.2s ease;
+    border: 1px solid #eaeaea;
+}
+.dec-item:hover {
+    background-color: #fdfaf0 !important;
+    border-color: #d4af37;
+}
+.form-check-input-gold:checked {
+    background-color: #d4af37;
+    border-color: #d4af37;
+}
+/* --- Styles สำหรับหน้า รายการสั่งซื้อ (Orders) --- */
+.badge-status-pending { background-color: rgba(255, 193, 7, 0.15); color: #f59f00; }
+.badge-status-paid { background-color: rgba(13, 110, 253, 0.1); color: #0d6efd; }
+.badge-status-completed { background-color: rgba(25, 135, 84, 0.12); color: #198754; }
+.badge-status-cancelled { background-color: rgba(220, 53, 69, 0.1); color: #dc3545; }
+
+.slip-thumbnail {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid #eee;
+}
+.slip-thumbnail:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+/* --- Styles สำหรับหน้า รายละเอียดออเดอร์ (Admin Order Details) --- */
+.detail-card {
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.table-detail thead th {
+    background-color: #f8f9fa;
+    color: #495057;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    padding: 15px;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.summary-row {
+    background-color: #fcfcfd;
+}
+
+.summary-label {
+    font-weight: 500;
+    color: #6c757d;
+}
+
+/* แผนที่และสลิป */
+#adminMap {
+    height: 350px;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+}
+
+.slip-view-container {
+    border: 2px dashed #e0e0e0;
+    border-radius: 12px;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.slip-view-container:hover {
+    border-color: #d4af37;
+    background-color: #fffdf5;
+}
+/* --- Styles สำหรับหน้า รายการบริจาค (Donations) --- */
+.bg-light-danger-stat { background-color: rgba(220, 53, 69, 0.1); color: #dc3545; border: 1px solid rgba(220, 53, 69, 0.2); }
+.donation-icon { width: 40px; height: 40px; border-radius: 50%; background: #fff5f5; color: #dc3545; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; border: 1px solid #ffe3e3; }
+
+/* ป้ายสถานะบริจาค */
+.badge-don-pending { background-color: rgba(255, 193, 7, 0.15); color: #856404; }
+.badge-don-success { background-color: rgba(25, 135, 84, 0.12); color: #155724; }
+.badge-don-cancel { background-color: rgba(108, 117, 125, 0.12); color: #383d41; }
+/* --- ส่วนเพิ่มเติมสำหรับ Sidebar User Info --- */
+
+.admin-user-section {
+    border-radius: 12px !important;
+    margin-bottom: 25px !important;
+}
+
+/* บังคับสีชื่อ User ไม่ให้โดน CSS อื่นทับด้วย !important */
+.admin-user-name {
+    color: #ffffff !important;
+    font-size: 0.95rem !important;
+    text-transform: capitalize;
+}
+
+/* ตกแต่งวงกลมตัวอักษรแรกของชื่อ */
+.bg-gold {
+    background-color: #d4af37 !important;
+    color: #000000 !important;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+/* ตัวหนังสือ "เข้าสู่ระบบโดย" */
+.text-white-50 {
+    color: rgba(255, 255, 255, 0.5) !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.5px;
+}
+
+/* จัดระยะห่าง HR ใน Sidebar */
+.sidebar hr {
+    margin: 1rem 0 !important;
+    opacity: 0.1;
+}
